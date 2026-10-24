@@ -1,15 +1,18 @@
-const fastify = require("fastify")({
-    logger: true
-})
+import Fastify from 'fastify';
 
-fastify.get("/", async (request, reply) => {
+const app = Fastify({ logger: true });
+
+
+
+
+app.get("/", async (request, reply) => {
     return {
         application: "DevLab API",
         message: "API online!",
         nameApp: "Laboratorio de Testes"
     }
 })
-fastify.get("/health", async (req, reply) => {
+app.get("/health", async (req, reply) => {
     return {
         status: "ok",
         timestamp: Date.now(),
@@ -17,4 +20,4 @@ fastify.get("/health", async (req, reply) => {
     };
 });
 
-module.exports = fastify;
+export default app;
