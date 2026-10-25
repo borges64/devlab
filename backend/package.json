@@ -2,27 +2,29 @@
   "name": "devlab-api",
   "version": "1.0.0",
   "description": "",
-  
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "test:run": "vitest run",
-    "start": "node src/server.js",
-    "dev": "docker compose up -d && nodemon src/server.js",
-    "postinstall": "prisma skills sync || exit 0",
-    "docker:up": "docker compose up -d"
+    "docker:up": "docker compose up -d",
+    "dev": "docker compose up -d && tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@fastify/cors": "^11.3.1",
+    "@fastify/jwt": "^10.2.5",
+    "bcrypt": "^6.0.0",
     "express": "^5.3.0",
     "fastify": "^5.12.7",
     "postgres": "^3.4.9"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^26.6.5",
     "nodemon": "^3.1.14",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
     "vitest": "^5.0.5"
   },
   "repository": {
